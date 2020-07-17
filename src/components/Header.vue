@@ -2,28 +2,20 @@
   <header>
     <!-- NOTE: Should be a 'for' list for the sake of flexibility / linking to an admin page -->
     <!-- NOTE: Click interaction / styling would be provided by the router / logic -->
+    <!-- NOTE: Select could be using a 'for'list (same reasons as above) and Vue Material for better style control / behavior customization -->
     <div class="left">
       <a href="https://tryriot.com/" target="_blank"><img src="../assets/logo-white.svg" alt="riot logo"/></a>
       <div>Dashboard</div>
       <div>Team</div>
       <div class="selected">Simulation</div>
     </div>
-    <!-- NOTE: Select could be using a 'for'list (same reasons as above) and Vue Material for better style control / behavior customization -->
     <div class="right">
       <select>
         <option value="user">{{ currentUser.name }}</option>
         <option value="profil">My Profile</option>
         <option value="logout">Logout</option>
       </select>
-      <!-- FIX IMG SVG-->
-      <!-- <img src="../assets/chevron-down.svg" alt="chevron down" /> -->
-      <svg width="20" fill="currentColor" viewBox="0 0 20 20">
-        <path
-          fill-rule="evenodd"
-          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-          clip-rule="evenodd"
-        />
-      </svg>
+      <img src="../assets/chevron-down.svg" alt="chevron down" />
     </div>
   </header>
 </template>
@@ -67,6 +59,7 @@ header {
 
   .right {
     display: flex;
+    color: lightgray;
 
     select {
       font-family: "Roboto", sans-serif;
@@ -81,6 +74,10 @@ header {
 
     option {
       background-color: #252f3f;
+    }
+
+    img {
+      fill: currentColor;
     }
   }
 }
