@@ -8,8 +8,7 @@
       <div v-else>Sent individually</div>
     </div>
     <div class="result">
-      <!-- FIX DURATION -->
-      <div>{{ attack.created_at | duration("humanize") }}</div>
+      <div>{{ time }} ago</div>
       <div class="state" v-bind:class="{ success: attack.status === 'success', fail: attack.status === 'failure' }">
         <img v-if="attack.status === 'success'" src="../assets/check.svg" alt="check" />
         <img v-else src="../assets/x.svg" alt="x" />
@@ -21,9 +20,16 @@
 </template>
 
 <script>
+import moment from "moment";
+// Missing clear type for attack
 export default {
   name: "AttacksListItem",
   props: { attack: Object },
+  data: function() {
+    return {
+      time: moment(this.attack.created_at).fromNow(),
+    };
+  },
 };
 </script>
 

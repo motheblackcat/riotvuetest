@@ -38,6 +38,7 @@ const GET_ATTACKS = gql`
   }
 `;
 
+// Missing interface / model / typing for returned data (TS starter)
 export default {
   name: "AttacksList",
   props: { currentPage: Object },
@@ -66,7 +67,6 @@ export default {
 #attacks {
   width: 100%;
 
-  // find better nesting?
   h1 {
     margin: 50px 10% 160px 8.5%;
     font-size: 36px;
