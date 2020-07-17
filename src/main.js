@@ -1,8 +1,13 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
 
-Vue.config.productionTip = false
+import { createProvider } from "./vue-apollo";
+
+Vue.use(require("vue-moment"));
+
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  apolloProvider: createProvider(),
+  render: (h) => h(App),
+}).$mount("#app");

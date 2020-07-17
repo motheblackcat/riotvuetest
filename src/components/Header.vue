@@ -1,21 +1,21 @@
 <template>
   <header>
-    <!-- Should be a 'for' list for the sake of flexibility / linking to an admin page -->
-    <!-- Click interaction / styling would be provided by the router / logic -->
+    <!-- NOTE: Should be a 'for' list for the sake of flexibility / linking to an admin page -->
+    <!-- NOTE: Click interaction / styling would be provided by the router / logic -->
     <div class="left">
       <a href="https://tryriot.com/" target="_blank"><img src="../assets/logo-white.svg" alt="riot logo"/></a>
       <div>Dashboard</div>
       <div>Team</div>
       <div class="selected">Simulation</div>
     </div>
-    <!-- Select could be using a 'for'list (same reasons as above) and Vue Material for better style control / behavior customization -->
+    <!-- NOTE: Select could be using a 'for'list (same reasons as above) and Vue Material for better style control / behavior customization -->
     <div class="right">
       <select>
         <option value="user">{{ currentUser.name }}</option>
         <option value="profil">My Profile</option>
         <option value="logout">Logout</option>
       </select>
-      <!-- FIX -->
+      <!-- FIX IMG SVG-->
       <!-- <img src="../assets/chevron-down.svg" alt="chevron down" /> -->
       <svg width="20" fill="currentColor" viewBox="0 0 20 20">
         <path

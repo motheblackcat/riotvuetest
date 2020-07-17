@@ -28,10 +28,9 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 // scss variables should be used accross the app
-// Try gradient
 body {
   margin: 0;
-  background: linear-gradient(180deg, rgba(37, 47, 63, 1) 70%, rgba(255, 255, 255, 1) 70%) no-repeat;
+  background: linear-gradient(180deg, rgba(37, 47, 63, 1) 40%, rgba(255, 255, 255, 1) 40%) no-repeat;
   color: white;
   font-family: "Roboto", sans-serif;
 

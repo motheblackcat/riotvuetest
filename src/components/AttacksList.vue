@@ -4,7 +4,7 @@
     <div class="list-container">
       <div class="list">
         <div class="title">Attacks</div>
-        <AttacksListItem></AttacksListItem>
+        <AttacksListItem v-for="attack in attacks" :key="attack.id" v-bind:attack="attack"></AttacksListItem>
         <div class="load">
           <!-- FIX SVG IMG -->
           <svg width="20" fill="currentColor" viewBox="0 0 20 20">
@@ -14,7 +14,8 @@
               clip-rule="evenodd"
             />
           </svg>
-          <span>load more</span>
+          <div v-if="$apollo.loading">Loading...</div>
+          <div v-on:click="loadMore()">load more</div>
         </div>
       </div>
     </div>
@@ -22,14 +23,48 @@
 </template>
 
 <script>
-// Reshap folder
+// Reshape archi
+import gql from "graphql-tag";
 import AttacksListItem from "./AttacksListItem.vue";
+
+// Use variables in query for fetchMore
+const GET_ATTACKS = gql`
+  query {
+    attacks(limit: 5, order_by: { created_at: desc }) {
+      id
+      campaign {
+        name
+      }
+      created_at
+      employee {
+        firstname
+        lastname
+      }
+      status
+    }
+  }
+`;
 
 export default {
   name: "AttacksList",
-  props: ["currentPage"],
+  props: { currentPage: Object },
   components: {
     AttacksListItem,
+  },
+  apollo: {
+    attacks: {
+      query: GET_ATTACKS,
+    },
+  },
+  methods: {
+    loadMore() {
+      // TODO
+    },
+  },
+  data: function() {
+    return {
+      attacks: [],
+    };
   },
 };
 </script>
@@ -38,7 +73,7 @@ export default {
 #attacks {
   width: 100%;
 
-  // find better nesting
+  // find better nesting?
   h1 {
     margin: 50px 10% 160px 8.5%;
     font-size: 36px;
