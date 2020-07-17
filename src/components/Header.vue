@@ -1,8 +1,7 @@
 <template>
   <header>
-    <!-- NOTE: Should be a 'for' list for the sake of flexibility / linking to an admin page -->
-    <!-- NOTE: Click interaction / styling would be provided by the router / logic -->
-    <!-- NOTE: Select could be using a 'for'list (same reasons as above) and Vue Material for better style control / behavior customization -->
+    <!-- NOTE: Should be 'for' lists for menu / dropdown for the sake of flexibility / administration
+     & selected menu item styling would be provided by the router logic -->
     <div class="left">
       <a href="https://tryriot.com/" target="_blank"><img src="../assets/logo-white.svg" alt="riot logo"/></a>
       <div>Dashboard</div>
@@ -54,6 +53,7 @@ header {
       color: white;
       background-color: #171e2e;
       border-radius: 10px;
+      padding: 10px 15px;
     }
   }
 
@@ -78,6 +78,24 @@ header {
 
     img {
       fill: currentColor;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    .left {
+      a {
+        display: none;
+      }
+
+      div {
+        padding: 0;
+      }
+    }
+
+    .right {
+      margin: auto;
     }
   }
 }

@@ -31,6 +31,7 @@ export default {
 #item {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 30px 0 30px 30px;
   color: gray;
   border-top: 1px solid lightgray;
@@ -66,6 +67,7 @@ export default {
       border-radius: 15px;
       font-size: 14px;
       font-weight: bold;
+      margin-left: 5px;
     }
 
     .success {
