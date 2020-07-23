@@ -19,10 +19,12 @@
 import gql from "graphql-tag";
 import AttacksListItem from "./AttacksListItem.vue";
 
-// TODO: Use variables in query for fetchMore?
+// NOTE: The Vue Apollo components can also be used to acheive the same results
+const order = JSON.parse('{ "created_at": "desc" }');
+
 const GET_ATTACKS = gql`
-  query {
-    attacks(limit: 5, order_by: { created_at: desc }) {
+  query attacks($limit: Int!, $offset: Int!, $order_by: [attacks_order_by!]) {
+    attacks(limit: $limit, offset: $offset, order_by: $order_by) {
       id
       campaign {
         name
@@ -47,15 +49,33 @@ export default {
   apollo: {
     attacks: {
       query: GET_ATTACKS,
+      variables: {
+        limit: 5,
+        offset: 0,
+        order_by: order,
+      },
     },
   },
   methods: {
     loadMore() {
-      // TODO
+      this.offset += 5;
+      this.$apollo.queries.attacks.fetchMore({
+        variables: {
+          offset: this.offset,
+        },
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          const newAttacks = fetchMoreResult.attacks;
+          // NOTE: __typename: previousResult.attacks.__typename, is missing since it's not the query object that is returned?
+          return {
+            attacks: [...previousResult.attacks, ...newAttacks],
+          };
+        },
+      });
     },
   },
-  data: function() {
+  data: () => {
     return {
+      offset: 0,
       attacks: [],
     };
   },
