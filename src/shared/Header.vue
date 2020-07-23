@@ -32,7 +32,7 @@ header {
   height: 70px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba($color: #fff, $alpha: 0.1);
+  border-bottom: 1px solid rgba($color: white, $alpha: 0.1);
   cursor: pointer;
 
   .left {
@@ -51,7 +51,7 @@ header {
 
     .selected {
       color: white;
-      background-color: #171e2e;
+      background-color: $dark-blue;
       border-radius: 10px;
       padding: 10px 15px;
     }
@@ -62,7 +62,6 @@ header {
     color: lightgray;
 
     select {
-      font-family: "Roboto", sans-serif;
       font-size: 16px;
       color: lightgray;
       outline: none;
@@ -73,7 +72,7 @@ header {
     }
 
     option {
-      background-color: #252f3f;
+      background-color: $blue;
     }
 
     img {

@@ -6,7 +6,7 @@
         <div class="title">Attacks</div>
         <AttacksListItem v-for="attack in attacks" :key="attack.id" v-bind:attack="attack"></AttacksListItem>
         <div class="load">
-          <img src="../assets/chevron-down-purple.svg" alt="chevron down purple" />
+          <img src="../../assets/chevron-down-purple.svg" alt="chevron down purple" />
           <div v-if="$apollo.loading">Loading...</div>
           <div v-else v-on:click="loadMore()">load more</div>
         </div>
@@ -16,11 +16,10 @@
 </template>
 
 <script>
-// Reshape archi
 import gql from "graphql-tag";
 import AttacksListItem from "./AttacksListItem.vue";
 
-// Use variables in query for fetchMore
+// TODO: Use variables in query for fetchMore?
 const GET_ATTACKS = gql`
   query {
     attacks(limit: 5, order_by: { created_at: desc }) {
@@ -38,7 +37,7 @@ const GET_ATTACKS = gql`
   }
 `;
 
-// Missing interface / model / typing for returned data (TS starter)
+// NOTE: Missing interface / model / typing for returned data (TS starter)
 export default {
   name: "AttacksList",
   props: { currentPage: Object },
@@ -83,7 +82,7 @@ export default {
       background-color: white;
       border: 1px solid lightgray;
       border-radius: 10px;
-      box-shadow: rgba($color: #000000, $alpha: 0.1) 1px 1px 3px;
+      box-shadow: rgba($color: black, $alpha: 0.1) 1px 1px 3px;
 
       .title {
         padding: 25px;
@@ -94,7 +93,7 @@ export default {
         display: flex;
         justify-content: center;
         padding: 20px;
-        color: #584fec;
+        color: $purple;
         border-top: 1px solid lightgray;
         cursor: pointer;
       }

@@ -1,4 +1,5 @@
 <template>
+  <!-- NOTE: Vuetify or another UI library should have been used but couldn't regarding time -->
   <div id="app">
     <Header v-bind:currentUser="currentUser"></Header>
     <AttacksList v-bind:currentPage="currentPage"></AttacksList>
@@ -6,8 +7,8 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import AttacksList from "./components/AttacksList.vue";
+import Header from "./shared/Header.vue";
+import AttacksList from "./components/Attacks/AttacksList.vue";
 
 export default {
   name: "App",
@@ -25,12 +26,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-// scss variables should be used accross the app
+// NOTE: Styles can be moved to their own files https://cli.vuejs.org/guide/css.html#css-modules
 body {
   margin: 0;
-  background: linear-gradient(180deg, rgba(37, 47, 63, 1) 40%, rgba(255, 255, 255, 1) 40%) no-repeat;
+  background: linear-gradient(180deg, $blue 40%, white 40%) no-repeat;
   color: white;
   font-family: "Roboto", sans-serif;
 
