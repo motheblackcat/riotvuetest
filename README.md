@@ -1,3 +1,3 @@
 # riot vue test
 
-A full work day time steal in Vue
+A simple test app with Vue and GraphQL.
